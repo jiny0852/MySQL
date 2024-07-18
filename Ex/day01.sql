@@ -116,7 +116,7 @@ select first_name
 	 , last_name
      , salary
 from employees
-where concat(first_name, last_name) like '-a';
+where first_name like '_a%';
 
 -- 테이블 명을 생략할떄도 있다
 select now();
