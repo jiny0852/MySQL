@@ -157,7 +157,24 @@ from employees
 ;
 
 
+select concat(
 
+date_format( min(hire_date), '%Y년 %m월 %e일' )  ,
+     
+     
+     case dayofweek( min(hire_date) )
+            when '1' then '(일요일)'
+            when '2' then '(월요일)'
+            when '3' then '(화요일)'
+            when '4' then '(수요일)'
+            when '5' then '(목요일)'
+            when '6' then '(금요일)'
+            when '7' then '(토요일)'
+	   end ) as'축하합니다'
+
+
+from employees
+;
 
 
 
