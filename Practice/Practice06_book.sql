@@ -207,14 +207,63 @@ select * from book;
 
 
 
+
 -- 책+작가 리스트 출력
+
+select * from author;
+
+select  b.title,
+		a.author_name
+        
+from author a, book b
+where a.author_id = b.author_id
+;
 
 -- 강풀정보 변경
 
+select  author_id,
+		author_name
+        
+from author
+where author_name = '강풀'
+;
+
+update author
+set author_name = 'tlswldus',
+	author_desc = 'cnlwnstod'
+    where author_id = 5;
+
+
 -- 책+작가 리스트 출력
 
+select *
+from author a, book b
+;
+
+
+
 -- 기안84 작가 삭제
--- -->오류발생 이유 생각해보기
+-- -->오류발생 이유 생각해보기 
+select  author_id,
+		author_name
+        
+from author
+where author_name = '기안84'
+;
+
+
+delete from author
+where author_id = 10
+;##??????????바로 지워지는데요...?????
+
+
+delete from author
+where author_name = '기안84'
+; ## 이걸 말하시느건데 왜그렇냐면요.....................
+# you are using safe update mode and you tried to update a table without a WHERE that uese a KEY column. to disable safe mode, toggle the option in preferences ->SQL editor and reconnect
+
+
+select * from author; 
 
 
 
