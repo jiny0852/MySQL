@@ -103,18 +103,18 @@ where (department_id, salary) in ( select department_id, max(salary)
 order by salary asc                 
 ;
 
--- 테이블 조인
-###################### 다시
+-- 테이블 조인 ########################
 select  e.employee_id,
 		e.first_name,
-        s.max(salary),
-        s.department_id
+        e.salary,
+        e.department_id
 
-from employees e, ( select department_id, max(salary)
+from employees e, ( select department_id, max(salary) salary
 								   from employees
 								   group by department_id ) s
 
-where e.salary = s.max(salary)
+where e.department_id = s.department_id
+and e.salary = s.salary
 
  order by salary asc                 
 ;
@@ -174,6 +174,16 @@ order by department_id asc
 직원 입사일이 11번째에서 15번째의 직원의 사번, 이름, 월급, 입사일을 입사일 순서로 출력
 하세요*/
 
+
+select  employee_id,
+		first_name,
+        salary,
+        hire_date
+        
+from employees
+order by hire_date asc
+limit 10, 5
+;
 
 
 

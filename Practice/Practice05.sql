@@ -3,6 +3,19 @@
 이름, 매니저아이디, 커미션 비율, 월급 을 출력하세요.
 (45건)*/
 
+select  first_name,
+		manager_id,
+        commission_pct,
+        salary
+        
+from employees
+where manager_id is not null
+and commission_pct is null
+and salary > 3000
+
+order by employee_id asc
+;
+
 
 
 /*문제2.
@@ -14,6 +27,21 @@
 -입사일은 2001-01-13 토요일 형식으로 출력합니다.
 -전화번호는 515-123-4567 형식으로 출력합니다.
 (11건)*/
+################다시
+select  employee_id,
+		first_name,
+        salary,
+        
+        hire_date,
+        phone_number, 
+        department_id
+        
+from employees
+group by department_id
+having max(salary)
+
+order by salary asc
+;
 
 
 
